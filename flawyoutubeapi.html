@@ -77,7 +77,7 @@
           <h5 class="header col s12 light">Game Creative Startup Company</h5>
         </div>
         <div class="row center">
-          <a href="https://github.com/MundoSK/MundoSK/raw/c779305c7184021c1017fb9c8c8acb144761b047/MundoSK.jar" download id="download-button" class="btn-large waves-effect waves-green">Download FlawSkript Prototype V2</a>
+          <a href="https://github.com/MundoSK/MundoSK/raw/c779305c7184021c1017fb9c8c8acb144761b047/MundoSK.jar" download id="download-button" class="btn-large waves-effect waves-green">Download FlawYoutubeAPI Prototype</a>
         </div>
       </div>
     </div>
@@ -90,60 +90,46 @@
       <!--   Icon Section   -->
       <div class="center row">
 <p>FlawYoutubeAPI is a plugin that connects Youtube and Minecraft. If you hit a certain letter on Youtube, you can make the set command work.
-</p><p>What this script does is combine the chats of two servers. When a player on one server sends a chat message, all players on both servers see it.
-</p><p>The script has two parts: One is the "hub" script, which goes on one server, whose host and port is known to all other servers. The other is the "other server" script, which goes on the other servers.
-</p><p>Hub Script:
+</p><p>It should be noted that it works with only a few config settings.
+</p><p>Now we'll show you how to put this into action.
+</p><p>Config:
 </p><blockquote class="blue-grey lighten-4 left-align"><pre>
-on server start:
-  set {GlobalChatEnabled} to false
+api-key:
+google-api-key:
 
-function GlobalChatMessageSender(player: string, msg: string):
-  set {_message} to "<%{_player}%>: %{_msg}%"
-  broadcast {_message}
-  loop {GlobalChatServers::*}:
-    write "password", "globalchat", and {_message} to socket with host loop-index port loop-value
+live-chat-id:
 
-function GlobalChatMessageReceiver(msg: strings, info: objects):
-  if {_msg::1} is "globalchat":
-    GlobalChatMessageSender({_msg::2}, {_msg::3})
-  else if {_msg::1} is "addserver":
-    set {GlobalChatServers::%{_info::2}%} to {_msg::2} parsed as a number
-
-on chat:
-  if {GlobalChatEnabled} is true:
-    cancel event
-    GlobalChatMessageSender("%player%", message)
-
-command /enableglobalchat:
-  trigger:
-    set {GlobalChatEnabled} to true
-    open function socket at port 25000 with password "password" through function "GlobalChatMessageReceiver"
-    broadcast "&2Global Chat Enabled!"
-</pre></blockquote><p>Other Server Script:
-</p><blockquote class="blue-grey lighten-4 left-align"><pre>
-on server start:
-  set {GlobalChatEnabled} to false
-
-command /enableglobalchat:
-  trigger:
-    set {GlobalChatEnabled} to true
-    open function socket at port 25001 with password "password" through function "GlobalChatBroadcaster"
-    write "password", "addserver", and "25001" to socket with host "localhost" port 25000
-    broadcast "Global Chat Enabled!"
-
-function GlobalChatBroadcaster(msg: strings, info: objects):
-  if {_msg::1} is "globalchat":
-    broadcast "%{_msg::2}%"
-
-on chat:
-  if {GlobalChatEnabled} is true:
-    cancel event
-    write "password", "globalchat", "%player%", and "%message%" to socket with host "localhost" port 25000
+command:
+  one-command:
+    # command from youtube
+    from:
+    # command send to console
+    to:
+  two-command:
+    # command from youtube
+    from:
+    # command send to console
+    to:
+  three-command:
+    # command from youtube
+    from:
+    # command send to console
+    to:
+  four-command:
+    # command from youtube
+    from:
+    # command send to console
+    to:
+  five-command:
+    # command from youtube
+    from:
+    # command send to console
+    to:
 </pre></blockquote><p>Here's how the script works:
-</p><p>First, you execute the /enableglobalchat on the hub server. This opens the function socket and broadcasts a fun message. Then, you do the same command on the other servers. This opens a function socket on each of those individual servers, then writes to the hub server with the port of their function socket, which the hub server records in a list variable.
-</p><p>/enableglobalchat also sets to true a variable that allows players' chats to be globalchatted. Once global chat is enabled, whenever a player chats on the hub server, the event is cancelled and both the player and the message are sent to a function which converts the player and the message into a full message, broadcasts it on the hub server, and loops the aformentioned list variable, writing the message to each other server, which then broadcast the message.
-</p><p>The same thing happens with the other servers when a player chats, except they first have to write the player and the message to the hub server's function socket.
-</p><p>This script shows the bare minimum of what can be done with MundoSK sockets. You could have a private message system, a reply system, an auction system, or even more over multiple servers. The possibilities are endless.</p>
+</p><p>We'll tell you what to put in each.
+</p><p>api-key and google-api-key are the same letters, and require the key of the Google application.
+</p><p>live-chat-id means the key you need to share your screen. Simply put, live broadcasting key.
+</p><p>The command can be set to 5 types, and / is not required. You can put in a command that you type on YouTube for from, and a command that works on the server for to.</p>
       </div>
     </div>
     <br><br>
