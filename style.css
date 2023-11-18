@@ -1,10 +1,10 @@
 .navbar {
     overflow: hidden;
     background-color: #333;
+    display: flex; /* flexbox를 사용해 아이템들을 같은 라인에 정렬 */
 }
 
 .navbar a {
-    float: left;
     display: block;
     color: white;
     text-align: center;
@@ -13,13 +13,14 @@
 }
 
 .dropdown {
-    float: left;
-    overflow: hidden;
+    position: relative; /* 드롭다운 메뉴의 위치 기준점 설정 */
 }
 
 .dropdown .dropdown-content {
     display: none;
     position: absolute;
+    left: 0; /* 드롭다운 메뉴의 좌측 정렬 */
+    top: 100%; /* 드롭다운 메뉴가 상위 메뉴 아래에 위치하도록 설정 */
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -27,7 +28,6 @@
 }
 
 .dropdown .dropdown-content a {
-    float: none;
     color: black;
     padding: 12px 16px;
     text-decoration: none;
