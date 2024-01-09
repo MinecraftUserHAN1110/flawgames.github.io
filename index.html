@@ -1,25 +1,50 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>Flaw Games Company</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="#">메뉴1</a></li>
-            <li class="dropdown">
-                <a href="#">메뉴2</a>
-                <div class="dropdown-content">
-                    <a href="#">하위 메뉴1</a>
-                    <a href="#">하위 메뉴2</a>
-                    <a href="#">하위 메뉴3</a>
-                </div>
-            </li>
-            <li><a href="#">메뉴3</a></li>
-        </ul>
-    </nav>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Flaw Games Community</title>
+    </head>
     <script src="script.js"></script>
-</body>
+    <body>
+        <nav id="topNav" onclick="toggleDropdown()">
+            <div class="nav-header" onclick="toggleDropdown()">Flaw Games</div>
+            <div class="nav-link">
+                <a href="./index.html">Home</a>
+            </div>
+            <div class="nav-text">Products</div>
+            <div class="dropdown-content">
+                <div class="dropdown-section">
+                    <span class="dropdown-description">Blog</span>
+                    <div class="dropdown-items">
+                        <a href="./blog/update.html">Update</a>
+                        <a href="./blog/laboratory.html">Laboratory</a>
+                    </div>
+                </div>
+                <div class="dropdown-section">
+                    <span class="dropdown-description">Products</span>
+                    <div class="dropdown-items">
+                        <a href="./products/HypixelUHCChampionsItems.html">HypixelUHCChampionsItems Plugin</a>
+                    </div>
+                </div>
+                <div class="dropdown-section">
+                    <span class="dropdown-description">Deprecated</span>
+                    <div class="dropdown-items">
+                        <a href="./products/packet.html">Packet Bukkit</a>
+                    </div>
+                </div>
+                <!-- 추가 섹션 -->
+            </div>
+            <div class="nav-link">
+                <a href="./blog/update.html">Update</a>
+            </div>
+            <div class="nav-link">
+                <a href="https://discord.gg/DcJXWfSrnx">Support</a>
+            </div>
+        </nav>
+        <!-- 페이지의 나머지 내용 -->
+        <div class="page-title">Flaw Games Company</div>
+        <div class="page-description">Flaw Games Company is Korea / USA Game Creative Company</div>
+        <div class="page-description">We make Minecraft Plugin and Bukkit, Unreal and Unity Engine game.</div>
+    </body>
 </html>
